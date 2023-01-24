@@ -1,4 +1,3 @@
-
 JDK_REPO=judovana/jdk8u-dev
-JDK_REF=judovana-backport-63eb0b7e
+JDK_REF=fixingJfrNativeTests
 JDK_TEST=jdk_jfr
