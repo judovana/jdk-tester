@@ -10,7 +10,7 @@ on:
 jobs:
   test-jdk:
     name: "Test JDK"
-    runs-on: "ubuntu-20.04"
+    runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v3
       - name: read config
@@ -44,7 +44,7 @@ jobs:
       - name: Install build deps
         run: |
           sudo apt-get update
-          sudo apt-get -y install build-essential libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxrandr-dev libxtst-dev libxt-dev libasound2-dev libffi-dev autoconf krb5-user
+          sudo apt-get -y install build-essential libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxrandr-dev libxtst-dev libxt-dev libasound2-dev libffi-dev autoconf krb5-user libfontconfig1-dev
       - name: Prepare Jtreg
         run: |
           . ./helper-funcs.sh
@@ -69,7 +69,7 @@ jobs:
         continue-on-error: true
       - name: Upload results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: test-results.tar.gz
         continue-on-error: true
